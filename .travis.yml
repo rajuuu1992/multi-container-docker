@@ -4,21 +4,21 @@ service:
   - docker
 
 before_install:
-  docker build -f ./client/Dockerfile.dev -t rajesh/multi-container-docker-client ./client
+  docker build -f ./client/Dockerfile.dev -t rajuuu1992/multi-container-docker-client ./client
 
 script:
-  - docker run -e CI=true rajesh/multi-container-docker-client npm run test 
+  - docker run -e CI=true rajuuu1992/multi-container-docker-client npm run test 
 
 after_success:
-  - docker build -t rajesh/multi-client ./client
-  - docker build -t rajesh/multi-server ./server
-  - docker build -t rajesh/multi-worker ./workder
-  - docker build -t rajesh/multi-nginx ./nginx
+  - docker build -t rajuuu1992/multi-client ./client
+  - docker build -t rajuuu1992/multi-server ./server
+  - docker build -t rajuuu1992/multi-worker ./workder
+  - docker build -t rajuuu1992/multi-nginx ./nginx
   
   # docker login
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" -- password-stdin
   # push to docker images  
-  - docker push rajesh/multi-client
-  - docker push rajesh/multi-server
-  - docker push rajesh/multi-worker
-  - docker push rajesh/multi-nginx
+  - docker push rajuuu1992/multi-client
+  - docker push rajuuu1992/multi-server
+  - docker push rajuuu1992/multi-worker
+  - docker push rajuuu1992/multi-nginx
